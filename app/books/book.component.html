@@ -1,0 +1,22 @@
+<div class="panel panel-danger">
+	<div class="panel-heading big-text">
+		{{book.title}} 
+		<span style="float: right;">
+			{{book.price | currency : 'INR': true}}
+		</span>
+		<br/>
+		<span class="small-text">{{book.description}}</span>
+	</div>
+	<div class="panel-body">
+		<img [src]="'/images/' + book.imageUrl"  style="vertical-align: text-bottom"
+			class="img-thumbnail" width="100" height="100"/>
+		&nbsp;&nbsp;
+		<button type="button" *ngIf="book.isAvailable"
+			class="btn btn-default btn-sm" style="margin-bottom:10px;">
+			Add to Cart
+		</button>
+		<span class="red-text" *ngIf="!book.isAvailable">Sold out!</span>
+	</div>
+	<book-footer [book]="book"></book-footer>
+	
+</div>

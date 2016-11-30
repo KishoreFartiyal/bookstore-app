@@ -1,0 +1,31 @@
+<div class="panel-footer">
+	
+	<ul class="nav nav-pills">
+		<li [ngClass]="{active: currentTab=='Description'}">
+			<a (click)="showDescription()">Description</a>
+		</li>
+		<li [ngClass]="{active: currentTab=='Specifications'}">
+			<a (click)="showSpecifications()">Specifications</a>
+		</li>
+		<li [ngClass]="{active: currentTab=='Reviews'}">
+			<a (click)="showReviews()">Reviews</a>
+		</li>
+	</ul>
+	<br/>
+	<div class="description" *ngIf="currentTab=='Description'">
+			<div class="bold">Description</div>
+			<div >{{book.description}}</div>
+	</div>
+	<div class="specification" *ngIf="currentTab=='Specifications'">
+		<div class="bold">Specifications</div>
+			<div><span class="bold">Book Type:</span> {{book.specification.type}}</div>
+			<div><span class="bold">No of Pages:</span> {{book.specification.pageCount}}</div>
+			<div><span class="bold">Author:</span> {{book.specification.author}}</div>
+			<div><span class="bold">Publication Year:</span> {{book.specification.publicationYear}}</div>
+	</div>
+	<div class="reviews" *ngIf="currentTab=='Reviews'">
+		<div class="bold">Reviews</div>
+		<book-reviews [book]="book"></book-reviews>
+	</div>
+	<br/>
+</div>

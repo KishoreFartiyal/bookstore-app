@@ -1,0 +1,38 @@
+<div class="panel panel-success">
+	<div class="panel-body">
+		<div *ngFor="let review of book.reviews" class="left-border">
+		
+			<span class="bold">Stars: {{review.rating}}</span>
+			{{review.reviewComment}}<br/>
+			<span class="italic">by: {{review.reviewerEmail}}</span>
+			
+		</div>
+	
+		<form [formGroup]="reviewForm" class="top-border">
+			<label>Rate the Book: </label>
+				<select [formControl]="rating" style="width: 70px;">
+					<option value="1">1 star</option>
+					<option value="2">2 star</option>
+					<option value="3">3 star</option>
+					<option value="4">4 star</option>
+					<option value="5">5 star</option>
+				</select>
+			
+			<br/>
+			<textarea [formControl]="ratingComment" placeholder="Review Comment:"
+				[ngClass]="{'red-border': ratingComment.invalid && ratingComment.touched}">
+			</textarea>
+			<br/>
+			<input type="text" [formControl]="emailId" placeholder="Email Id:"
+				[ngClass]="{'red-border': emailId.invalid && emailId.touched}"/>
+			<br/>
+				<span>reviewForm is {{reviewForm.valid}}</span>
+			<br/>
+			<button type="button" class="btn btn-default btn-sm" (click)="saveReview()" 
+				[disabled]="reviewForm.invalid"
+				[ngClass]="{disabled: reviewForm.invalid}">
+				Submit Review
+			</button>
+		</form>
+	</div>
+</div>
