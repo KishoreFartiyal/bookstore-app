@@ -1,7 +1,10 @@
 # bookstore-app
 a bookstore app with angular 2 and bootstrap
 
-To run the app, node.js is required to be installed on the machine.
+Plunker link is: https://embed.plnkr.co/9PcPcVHl8mimugjkHWUu/
+
+
+To run the app on local machine, node.js is required to be installed on the machine.
 
 Copy all the files into a local folder.( ex. bookstore-app)
 
