@@ -15,7 +15,13 @@ export class BookstoreAppComponent implements OnInit{
 	constructor(private bookService: BookService){}
 	
 	getBooks(): void{
-		this.books = this.bookService.getBooks();
+		try{
+			this.books = this.bookService.getBooks();
+		}
+		catch(err){
+			console.log(err);
+			this.books = [];
+		}
 	}
 	
 	ngOnInit(): void{
